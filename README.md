@@ -1,9 +1,12 @@
 # multicast-tester
-sender and recieve multicast applications to assist in troubleshooting network connections
+sender and receive multicast applications to assist in troubleshooting network connections
+
+I found a utility program similar to this written in C with the same functionality.  I'd been using it but was unable to find out any information about its providence or LICENSE.  Nevertheless, I find it to be totally helpful.  For this reason, I developed this project with an open license and source code.  I wrote it in Python so anyone can alter it for their own purpose.    
+
 
 <h1>What it does:</h1>
 Multicast-Sender.py takes a continuous stream of zeros and sends them to a multicast group and port.  
-Multicast-Listen/py captures multicast, prints out the first 1024 bytes and exits.  
+Multicast-Listen/py captures multicast, prints out the first 1024 bytes, and exits.  
 
 <h3>Server 1</h3>
 start sending data - this takes a multicast group and port number as arguments.  More information on multicast groups and ports here: https://www.cisco.com/c/en/us/td/docs/ios/solutions_docs/ip_multicast/White_papers/mcst_ovr.html
@@ -16,9 +19,11 @@ Now sending data
 
 <h3>Server 2</h3>
 on server 2, you run multicast-listen.py which takes 3 arguments
-1) multicast group         - (should be the same as the group that is being sent)
-2) multicast port          - (should be the same as the port that the sender is using )
-3) the local ip address    - (should be the IP address of the network interface you are using to read the multicast data from)
+<br><br>
+  1)  multicast group         - (should be the same as the group that is being sent) <br>
+  2)  multicast port          - (should be the same as the port that the sender is using ) <br>
+  3)   the local ip address    - (should be the IP address of the network interface you are using to read the multicast data from) <br>
+<br>
 <pre>
 :~$ ./multicast-listen.py  239.0.0.1 1234 10.122.13.7
 4
