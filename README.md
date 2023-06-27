@@ -1,6 +1,8 @@
 # multicast-tester
 sender and receive multicast applications to assist in troubleshooting network connections
 
+<b>LinkedIn Article:</b>:<a href="https://www.linkedin.com/pulse/multicast-tester-tool-network-testing-troubleshooting-tom-murphy">https://www.linkedin.com/pulse/multicast-tester-tool-network-testing-troubleshooting-tom-murphy</a>
+
 I found a utility program similar to this written in C with the same functionality.  I'd been using it but was unable to find out any information about its providence or LICENSE.  Nevertheless, I find it to be totally helpful.  For this reason, I developed this project with an open license and source code.  I wrote it in Python so anyone can alter it for their own purpose.    
 
 
