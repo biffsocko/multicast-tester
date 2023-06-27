@@ -58,6 +58,8 @@ parser.add_argument('group', help='Multicast group name')
 parser.add_argument('port', type=int, help='Port number')
 args = parser.parse_args()
 
+print("Now sending data")
+
 # Call the function to send multicast data
 send_multicast_data(args.group, args.port)
 exit(0)
