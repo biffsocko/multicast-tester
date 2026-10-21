@@ -209,6 +209,7 @@ def test_listener_timeout_exits_nonzero(port, local_ip):
     assert r.returncode == 1
     assert "Traceback" not in r.stderr
 
+
 # --- both together: the README's two-server demo on one box ----------------
 
 
