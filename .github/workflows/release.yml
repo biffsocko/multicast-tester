@@ -22,7 +22,7 @@ jobs:
         run: |
           git archive --format=tar.gz \
             --prefix="multicast-tester-${GITHUB_REF_NAME}/" \
-            -o "mulicast-tester-${GITHUB_REF_NAME}.tar.gz" HEAD
+            -o "multicast-tester-${GITHUB_REF_NAME}.tar.gz" HEAD
 
       - name: Create GitHub Release
         env:
