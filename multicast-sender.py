@@ -30,6 +30,7 @@
 import socket
 import argparse
 
+
 def send_multicast_data(group, port):
     # Create a UDP socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
@@ -41,7 +42,7 @@ def send_multicast_data(group, port):
     group_address = (group, port)
 
     # Open /dev/zero for reading
-    with open('/dev/zero', 'rb') as zero_file:
+    with open("/dev/zero", "rb") as zero_file:
         # Continuously read from /dev/zero and send multicast data
         while True:
             data = zero_file.read(1024)  # Read 1024 bytes from /dev/zero
@@ -49,13 +50,14 @@ def send_multicast_data(group, port):
             # Send the data to the multicast group
             sock.sendto(data, group_address)
 
+
 ####################################
 # MAIN
 ####################################
 # Parse the command-line arguments
-parser = argparse.ArgumentParser(description='Send multicast data from /dev/zero')
-parser.add_argument('group', help='Multicast group name')
-parser.add_argument('port', type=int, help='Port number')
+parser = argparse.ArgumentParser(description="Send multicast data from /dev/zero")
+parser.add_argument("group", help="Multicast group name")
+parser.add_argument("port", type=int, help="Port number")
 args = parser.parse_args()
 
 print("Now sending data")
