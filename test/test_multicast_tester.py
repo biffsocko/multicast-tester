@@ -203,17 +203,11 @@ def test_listener_reports_timeout(port, local_ip):
     assert f"failed reading group {GROUP} on port {port}" in r.stdout
 
 
-@pytest.mark.xfail(strict=True, reason="listener exits 0 even when it read nothing")
 def test_listener_timeout_exits_nonzero(port, local_ip):
-    """A troubleshooting tool should fail loudly so scripts can check $?.
-
-    strict=True: once the listener is fixed to sys.exit(1) on failure, this
-    test starts passing, pytest reports XPASS as a failure, and that's your
-    cue to delete the xfail marker.
-    """
+    """A troubleshooting tool should fail loudly so scripts can check $?."""
     r = run(LISTENER, GROUP, port, local_ip)
-    assert r.returncode != 0
-
+    assert r.returncode == 1
+    assert "Traceback" not in r.stderr
 
 # --- both together: the README's two-server demo on one box ----------------
 

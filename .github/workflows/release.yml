@@ -33,5 +33,5 @@ jobs:
             --generate-notes \
             "multicast-tester-${GITHUB_REF_NAME}.tar.gz" \
             multicast-listen.py \
-            multicast-send.py 
+            multicast-sender.py 
 

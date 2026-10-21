@@ -59,8 +59,7 @@ sock = joinMcast(MCAST_GRP, MCAST_PORT, INTERFACEIP)
 sock.settimeout(10)
 try:
     print(f"printing first {BYTES} bytes: ")
-    print(sock.recv(BYTES))
-    sock.close()
+    data = sock.recv(BYTES)
 except OSError:
     print(
         "failed reading group "
@@ -70,5 +69,14 @@ except OSError:
         + " and interface: "
         + INTERFACEIP
     )
+    sys.exit(1)
 
+finally:
+    sock.close()
+
+if not data:
+    print("no bytes received")
+    sys.exit(1)
+
+print(data)
 sys.exit(0)
