@@ -27,8 +27,9 @@
 # optional arguments:
 #   -h, --help  show this help message and exit
 ##################################################
-import socket
 import argparse
+import socket
+import sys
 
 
 def send_multicast_data(group, port):
@@ -64,4 +65,4 @@ print("Now sending data")
 
 # Call the function to send multicast data
 send_multicast_data(args.group, args.port)
-exit(0)
+sys.exit(0)

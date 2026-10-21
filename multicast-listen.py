@@ -8,8 +8,6 @@
 ###################################################################################################
 
 import socket
-import struct
-import os
 import sys
 
 BYTES = 10240
@@ -50,7 +48,7 @@ usage = script_name + " [multicast group] [multicast port] [local interface ip a
 
 if num_args != 4:
     print(usage)
-    exit(1)
+    sys.exit(1)
 else:
     MCAST_GRP = sys.argv[1]
     MCAST_PORT = int(sys.argv[2])
@@ -63,7 +61,7 @@ try:
     print(f"printing first {BYTES} bytes: ")
     print(sock.recv(BYTES))
     sock.close()
-except:
+except OSError:
     print(
         "failed reading group "
         + MCAST_GRP
@@ -73,4 +71,4 @@ except:
         + INTERFACEIP
     )
 
-exit(0)
+sys.exit(0)
